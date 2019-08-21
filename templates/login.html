@@ -1,0 +1,271 @@
+<html>
+  <head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin:70px 0;
+        }
+
+        .item1 {
+            grid-area: logo;
+        }
+        ul {
+            margin: -12px;
+        }
+
+            ul li {
+                margin: 5% 0;
+            }
+
+        .item2 {
+            grid-area: title;
+        }
+
+        .item3 {
+            grid-area: login;
+
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas: 'logo logo  title title title title' 'login login login login login login';
+            grid-gap: 10px;
+        }
+
+        grid-container > div {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+
+        .login {
+            width: 330px;
+            height: 270px;
+            border-radius: 8px;
+        }
+
+        .item1 {
+            margin: 0% 5%;
+        }
+
+        .item2 {
+            align-self: center;
+        }
+
+        .item3 {
+            /* align-self: center; */
+            position: absolute;
+            right: 9%;
+            top: 100px;
+            padding: 10px;
+            width: 350px;
+            height: 290px;
+            background: aliceblue;
+            border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* style the container */
+        .container {
+            position: relative;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px 0 30px 0;
+            height:100%;
+        }
+          .item1 {
+            margin: 0% 5%;
+        }
+        .item5 {
+            width: 260px;
+            margin: 0 auto;
+            padding-top: 2px;
+        }
+
+        /* style inputs and link buttons */
+        input,
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            margin: 15px 0;
+            opacity: 0.85;
+            display: inline-block;
+            font-size: 17px;
+            line-height: 20px;
+            text-decoration: none; /* remove underline from anchors */
+        }
+
+            input:hover,
+            .btn:hover {
+                opacity: 1;
+            }
+
+        /* add appropriate colors to fb, twitter and google buttons */
+        .fb {
+            background-color: #3B5998;
+            color: white;
+        }
+
+        .twitter {
+            background-color: #55ACEE;
+            color: white;
+        }
+
+      
+
+        /* style the submit button */
+        input[type=submit] {
+            background-color: #13075a;
+            color: white;
+            cursor: pointer;
+        }
+
+            input[type=submit]:hover {
+                background-color: #13075a;
+            }
+
+        /* Two-column layout */
+        .col {
+          
+            width: 70%;
+            margin: auto;
+            padding: 0 50px;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* vertical line */
+        .vl {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            border: 2px solid #ddd;
+            height: 175px;
+        }
+
+        /* text inside the vertical line */
+        .vl-innertext {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            padding: 8px 10px;
+        }
+        .imagebg {
+            background-image: url("images/maxresdefault.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            -webkit-filter: blur(3px);
+            filter: blur(3px);
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+        }
+        /* hide some text on medium and large screens */
+        .hide-md-lg {
+            display: none;
+        }
+
+        /* bottom container */
+        .bottom-container {
+            text-align: center;
+            background-color: #666;
+            border-radius: 0px 0px 4px 4px;
+        }
+
+        /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+        .text-danger{
+            color:red;
+            font-size: 12px;
+            margin: 0;
+        }
+        .container {
+            position: relative;
+            border-radius: 5px;
+            background-color: #62caa4;
+            padding: 20px 0 30px 0;
+            height: 100%;
+            background-image: url(/images/bigdata.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .btn {            
+            height: 40px;
+            padding: 5px 10px;
+            background: #086caa;
+            color: #fff;
+        }        
+        .item6 input {
+            margin-bottom: 0;
+        }
+    </style>
+  </head>
+  <body>
+  <div class="container">
+  <div class="grid-container">
+  <!--
+  
+            <div class="item1">
+                <div class="logo">
+                    <img src="~/images/microsoft3.png" alt="Ge logo" style="width:150px; ">
+                </div>
+                
+            </div>
+    -->
+             <div class="item3">
+                <div class="login">
+                    <div class="item5">
+                        <div class="item6">
+                              <form action="" method="post">
+                                <input type="text" placeholder="Username" name="username" value="{{
+                                  request.form.username }}">
+                                 <input type="password" placeholder="Password" name="password" value="{{
+                                  request.form.password }}">
+                                <input class="btn btn-default" type="submit" value="Login">
+                              </form>
+                        </div>
+                  
+                    </div>
+                </div>
+             </div>
+            
+   </div>
+   </div>
+    <div class="container">
+      
+      <br>
+      <form action="" method="POST">
+        <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+        <input class="btn btn-default" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
+</html>

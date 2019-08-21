@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bar charts with Bokeh!</title>
+    <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.16.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+  </head>
+  
+  <body>
+   
+    <header>
+		<div class="container">
+		<div id="brandname">
+			Text Analysis on Scanned Documents
+		</div>
+		
+		
+	</div>
+	</header>
+    
+    <div class="ml-container">
+
+		<form action="/topic" method="POST">
+		<p>Enter Your Message Here</p>
+		<textarea name="message" rows="4" cols="50"></textarea>
+		<br/>
+    <input type="submit" class="btn-info" value="predict">
+		</form>
+		
+	</div>
+    
+    <br>
+    <br>
+     <div class="ml-container">
+
+		<form action="/freq" method="POST">
+		<p>Enter Your Message Here</p>
+		<textarea name="message" rows="4" cols="50"></textarea>
+		<br/>
+    <input type="submit" class="btn-info" value="predict">
+		</form>
+		
+	</div>
+    
+   
+  </body>
+</html>
+
+

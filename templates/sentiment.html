@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sentiment Analysis on Text Data</title>
+   
+  </head>
+  
+  <body>
+   
+    <header>
+		<div class="container">
+		<div id="brandname">
+			Text Analysis on Scanned Documents
+		</div>
+		
+		<div class="container">
+		<a href="/">HOME</a>
+		</div>
+		
+	</div>
+	</header>
+    
+    <div class="ml-container">
+         <table border = 1>
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+ 
+		
+	</div>
+    
+   
+  </body>
+</html>
+
+
